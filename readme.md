@@ -14,7 +14,7 @@ Your beautiful images are stored here. All images are authenticated and you can 
 ## Tech Stack:
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/tailwindcss-%2320232a.svg?style=for-the-badge&logo=tailwindcss&logoColor=darkyellow)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Firebase](https://img.shields.io/badge/firebase-%2320232a.svg?style=for-the-badge&logo=firebase&logoColor=darkyellow)
 
