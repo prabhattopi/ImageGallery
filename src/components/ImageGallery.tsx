@@ -11,7 +11,7 @@ const ImageGallery = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageGallery;
+export default ImageGallery

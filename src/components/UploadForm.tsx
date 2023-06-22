@@ -11,7 +11,7 @@ const UploadForm = () => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default UploadForm;
+export default UploadForm

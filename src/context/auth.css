@@ -1,0 +1,15 @@
+.holla{
+  animation:animate half-spin linear infinite;
+  -webkit-animation:animate half-spin linear infinite;
+}
+@keyframes half-spin {
+  0% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
