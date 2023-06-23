@@ -33,7 +33,7 @@ export const AuthProvider: FC<AuthProviderProps>=({children})=>{
     }
     return <AuthContext.Provider value={value}>
         {
-          !isLoading && children
+          !isLoading?<p>Loading...</p>:children
         }
     </AuthContext.Provider>
 }
