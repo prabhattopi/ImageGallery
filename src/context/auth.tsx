@@ -31,9 +31,14 @@ export const AuthProvider: FC<AuthProviderProps>=({children})=>{
         user,
         isLoading
     }
-    return <AuthContext.Provider value={value}>
-        {
-          !isLoading?<p>Loading...</p>:children
-        }
-    </AuthContext.Provider>
+    return (
+      <AuthContext.Provider value={value}>
+        {isLoading ? ( <div className="flex items-center justify-center h-screen">
+          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900 sm:h-20 sm:w-20"></div>
+        </div>
+        ) : (
+          children
+        )}
+      </AuthContext.Provider>
+    )
 }
