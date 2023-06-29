@@ -4,11 +4,14 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage"
-import { storage } from "../firebase/config"
+import { db, storage } from "../firebase/config"
+import { addDoc, collection } from "firebase/firestore"
+
+import useAuth from "./useAuth"
 const useStorage=()=>{
   const [progress, setProgress] = useState<number>(0)
   const [error, setError] = useState<Error | null>(null)
-  const [url, setUrl] = useState<string | null>(null)
+  const {user}= useAuth()
 
   const startUpload = (file:File) => {
   
@@ -36,10 +39,20 @@ const useStorage=()=>{
       },
       () => {
        
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
           console.log("File available at", downloadURL)
-          setUrl(downloadURL)
+
           setProgress(progress)
+          try {
+            const docRef = await addDoc(collection(db, "images"), {
+              imageUrl: downloadURL,
+              createdAt: new Date(),
+             userEmail:user?.email,
+            })
+            console.log("Document written with ID: ", docRef.id)
+          } catch (e) {
+            console.error("Error adding document: ", e)
+          }
         })
         
       }

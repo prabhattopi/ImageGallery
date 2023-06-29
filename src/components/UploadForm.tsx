@@ -28,11 +28,11 @@ const UploadForm = () => {
         <input
           type="file"
           onChange={handleFileChange}
-         
+          // value={selectFile?.name || ''}
           className="file-input file-input-bordered w-full max-w-xs"
         />
         <button type="submit" className={`btn gap-3 ${Boolean(progress) && "loading"}`}
-        disabled={!selectFile||Boolean(progress)}
+        disabled={!selectFile && Boolean(progress)}
         >
           UPLOAD <span>🚀</span>
         </button>
