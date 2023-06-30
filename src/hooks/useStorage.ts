@@ -13,7 +13,7 @@ const useStorage=()=>{
   const [error, setError] = useState<Error | null>(null)
   const {user}= useAuth()
 
-  const startUpload = (file:File) => {
+  const startUpload = (file: File, dropdown:string | null ) => {
   
     //when click
     if(!File){
@@ -47,7 +47,8 @@ const useStorage=()=>{
             const docRef = await addDoc(collection(db, "images"), {
               imageUrl: downloadURL,
               createdAt: new Date(),
-             userEmail:user?.email,
+              userEmail: user?.email,
+             filter:dropdown
             })
             console.log("Document written with ID: ", docRef.id)
           } catch (e) {

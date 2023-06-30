@@ -1,6 +1,9 @@
 import useGetData, { Image } from "../hooks/useGetData"
-const ImageGallery = () => {
-  const { docs, loading } = useGetData("images")
+interface ImageGallery{
+  dropdown:string|null
+}
+const ImageGallery = ({dropdown}:ImageGallery) => {
+  const { docs, loading } = useGetData("images",dropdown)
   if (loading) {
     return (
       <div className="text-center flex justify-center align-middle mt-8">
