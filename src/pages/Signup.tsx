@@ -1,4 +1,7 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth"
 import { useState } from "react"
 import { auth } from "../firebase/config"
 import { useNavigate } from "react-router-dom"
@@ -8,14 +11,10 @@ const Signup = () => {
   const [password, setPassword] = useState<string>("")
   const [error, setError] = useState<string>("")
   const navigate = useNavigate()
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // console.log(email, password)
-   
-       const isSignup = e.currentTarget.name === "signup"
 
+  const handleSubmit = async (action: "signup" | "signin") => {
     try {
-      if (isSignup) {
+      if (action === "signup") {
         await createUserWithEmailAndPassword(auth, email, password)
       } else {
         await signInWithEmailAndPassword(auth, email, password)
@@ -24,11 +23,11 @@ const Signup = () => {
     } catch (err) {
       setError(err.message)
     }
-   
   }
+
   return (
-    <form onSubmit={handleSubmit}>
-      {error && error}
+    <form onSubmit={(e) => e.preventDefault()}>
+      {error && <div>{error}</div>}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col">
           <div className="text-center">
@@ -69,11 +68,22 @@ const Signup = () => {
                   className="input input-bordered"
                 />
               </div>
-          
 
               <div className="form-control mt-6">
-                <button name="signup" className="btn btn-primary mb-4">Signup</button>
-                <button name="signin" className="btn btn-primary">SingIn</button>
+                <button
+                  type="submit"
+                  onClick={() => handleSubmit("signup")}
+                  className="btn btn-primary mb-4"
+                >
+                  Signup
+                </button>
+                <button
+                  type="submit"
+                  onClick={() => handleSubmit("signin")}
+                  className="btn btn-primary"
+                >
+                  Signin
+                </button>
               </div>
             </div>
           </div>
