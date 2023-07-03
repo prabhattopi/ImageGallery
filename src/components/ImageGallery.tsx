@@ -2,8 +2,10 @@ import useGetData, { Image } from "../hooks/useGetData"
 import Clipboard from "./Clipboard"
 interface ImageGallery{
   dropdown:string|null
+  handleClick: (text:string) => void;
+  showToast:boolean
 }
-const ImageGallery = ({dropdown}:ImageGallery) => {
+const ImageGallery = ({dropdown,handleClick,showToast}:ImageGallery) => {
   const { docs, loading } = useGetData("images",dropdown)
   if (loading) {
     return (
@@ -19,7 +21,7 @@ const ImageGallery = ({dropdown}:ImageGallery) => {
           key={e.imageUrl}
           className="card card-compact w-full bg-base-100 shadow-xl"
         >
-          <Clipboard text={e.imageUrl} />
+          <Clipboard showToast={showToast} handleClick={handleClick} text={e.imageUrl} />
           <figure className="max-h-[15rem]">
             <img src={e.imageUrl} alt="images" />
           </figure>
