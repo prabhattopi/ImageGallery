@@ -1,4 +1,5 @@
 import useGetData, { Image } from "../hooks/useGetData"
+import Clipboard from "./Clipboard"
 interface ImageGallery{
   dropdown:string|null
 }
@@ -18,6 +19,7 @@ const ImageGallery = ({dropdown}:ImageGallery) => {
           key={e.imageUrl}
           className="card card-compact w-full bg-base-100 shadow-xl"
         >
+          <Clipboard text={e.imageUrl} />
           <figure className="max-h-[15rem]">
             <img src={e.imageUrl} alt="images" />
           </figure>
