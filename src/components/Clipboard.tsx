@@ -18,9 +18,9 @@ const Clipboard: FC<ClipboardProps> = ({ text,handleClick,showToast }) => {
         disabled={showToast}
         className={`absolute ${
           showToast ? "cursor-not-allowed" : "cursor"
-        } text-black bg-transparent rounded-full px-2 py-2 shadow-md hover:bg-gray-200 focus:outline-none ml-2 my-2`}
+        } text-black bg-transparent rounded-full px-2 py-2 shadow-md hover:bg-gray-500 focus:outline-none ml-2 my-2`}
       >
-        <MdCopyAll className="w-5 h-5 text-white" />
+        <MdCopyAll className="w-5 h-5 text-gray-300" />
       </button>
     </>
   )
