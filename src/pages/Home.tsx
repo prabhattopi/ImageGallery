@@ -13,7 +13,7 @@ const Home = () => {
     setDropdown(item)
   }
   const [showToast, setShowToast] = useState(false)
- const [value, copy] = useCopyToClipboard()
+ const [,copy] = useCopyToClipboard()
   const handleClick = (text: string) => {
        copy(text)
         setShowToast(true)
