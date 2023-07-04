@@ -41,13 +41,15 @@ function App() {
 
   return (
     <>
-      {showToast && (
-        <div className="mr-4 toast toast-top toast-center">
-          <div className="alert alert-success">
-            <span>{toastMessage}</span>
+      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full flex justify-center">
+        {showToast && (
+          <div className="toast toast-top toast-center">
+            <div className="alert alert-success">
+              <span>{toastMessage}</span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
       <Routes>
         <Route
           path="/"
