@@ -7,6 +7,7 @@ enum DropdownItems {
   Item2 = "Education",
   Item3 = "Girls",
   Item4 = "Boys",
+  Item6= "Project"
 
   // Add more items as needed
 }
@@ -65,7 +66,7 @@ const UploadForm = ({ setDropdown, handleItemClick, dropdown }:UploadFormProps) 
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+              className="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52 z-[20]"
             >
               {/* Loop through the enum values and render the list items */}
               {Object.values(DropdownItems).map((item, index) => (
