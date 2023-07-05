@@ -51,12 +51,14 @@ const ImageGallery = ({
             text={e.imageUrl}
           />
 
-          <figure className="max-h-[15rem]">
-            <LazyLoadImage
-              alt="images"
-              src={e.imageUrl}
-              placeholder={<ImagePlaceholder />}
-            />
+          <figure style={{ maxHeight: "15rem", minHeight: "80px" }}>
+            
+              <LazyLoadImage
+                alt="images"
+                src={e.imageUrl}
+                placeholder={<ImagePlaceholder />}
+              />
+          
           </figure>
           <div className="card-body">
             <p>Upload by: {e.userEmail}</p>
