@@ -34,7 +34,7 @@ const ImageGallery = ({
   }
 
   return (
-    <div className="grid md:grid-cols-3 justify-center gap-4 mt-10">
+    <div className="grid md:grid-cols-3 justify-center gap-6 mt-10">
       {docs?.map((e: Image) => (
         <div
           key={e.imageUrl}
@@ -50,16 +50,16 @@ const ImageGallery = ({
             handleClick={handleClick}
             text={e.imageUrl}
           />
-
-          <figure style={{ maxHeight: "15rem", minHeight: "80px" }}>
-            
+          <div style={{ minHeight: "12rem" }}>
+            <figure style={{ maxHeight: "12rem" }}>
               <LazyLoadImage
                 alt="images"
                 src={e.imageUrl}
                 placeholder={<ImagePlaceholder />}
               />
-          
-          </figure>
+            </figure>
+          </div>
+
           <div className="card-body">
             <p>Upload by: {e.userEmail}</p>
             <span>Created on: {e.createdAt.toLocaleDateString()}</span>
